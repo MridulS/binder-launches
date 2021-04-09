@@ -37,12 +37,12 @@ const sequelize = new Sequelize(config.db,
         // https://sequelize.org/master/class/lib/sequelize.js~Sequelize.html
         dialect: 'postgres',
         protocol: 'postgres',
-        dialectOptions: {
-            ssl: {
-                require: true,
-                rejectUnauthorized: false
-            }
-        },
+        // dialectOptions: {
+        //     ssl: {
+        //         require: false,
+        //         rejectUnauthorized: false
+        //     }
+        // },
         logging: config.debug
     });
 

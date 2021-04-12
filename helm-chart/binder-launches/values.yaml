@@ -1,4 +1,7 @@
-debug: true
+debug: false
+# base url for the whole application.
+# for example you can set it to "/binder-launches"
+baseUrl: "/binder-launches-demo"
 replicaCount: 1
 image:
   repository: "mriduls/binder-launches"
@@ -54,7 +57,7 @@ parser:
 
   image:
     repository: "bitnik/binder-launches-parser-py"
-    tag: "d9fa984c"
+    tag: "44862fdf"
     pullPolicy: IfNotPresent
 
   resources:

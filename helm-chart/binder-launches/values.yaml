@@ -4,8 +4,8 @@ debug: true
 baseUrl: "/binderlaunches"
 replicaCount: 1
 image:
-  repository: "mriduls/binder-launches"
-  tag: "customssl"
+  repository: "bitnik/binder-launches"
+  tag: "6f85ec52"
   pullPolicy: IfNotPresent
 
 nameOverride: ""
@@ -43,6 +43,7 @@ db:
   chunkTimeInterval: "1 month"
   # interval for data retention
   dataRetentionInterval: "10 years"
+  ssl: true
 
 parser:
   # NOTE: `since` setting is disabled in the chart
@@ -57,7 +58,7 @@ parser:
 
   image:
     repository: "bitnik/binder-launches-parser-py"
-    tag: "44862fdf"
+    tag: "6f85ec52"
     pullPolicy: IfNotPresent
 
   resources:

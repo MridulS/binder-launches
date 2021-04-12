@@ -20,6 +20,9 @@ if (fs.existsSync(path.join(__dirname, 'config.js'))) {
     } else if (config['baseUrl'].endsWith('/')) {
         config['baseUrl'] = config['baseUrl'].slice(0, -1); ;
     }
+    if (!('dbSSL' in config)) {
+        config['dbSSL'] = true;
+    }
 } else {
     throw 'Please provide "config.js" for configuration.';
 }
@@ -42,12 +45,12 @@ const sequelize = new Sequelize(config.db,
         // https://sequelize.org/master/class/lib/sequelize.js~Sequelize.html
         dialect: 'postgres',
         protocol: 'postgres',
-        // dialectOptions: {
-        //     ssl: {
-        //         require: false,
-        //         rejectUnauthorized: false
-        //     }
-        // },
+        dialectOptions: {
+            ssl: {
+                require: config.dbSSL,
+                rejectUnauthorized: false
+            }
+        },
         logging: config.debug
     });
 
